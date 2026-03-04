@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { SERVICES } from "@/constants/site";
 import { ServiceIcon } from "@/components/ui/ServiceIcon";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 function ServiceCard({ service, index }: { service: (typeof SERVICES)[number]; index: number }) {
   return (
@@ -140,41 +141,11 @@ export function ServicesSection() {
       </div>
 
       <div className="relative z-10">
-        <div className="text-center mb-12 sm:mb-16 md:mb-20 flex flex-col items-center">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="inline-block px-4 py-1.5 rounded-full glass border border-white/10 text-primary-400 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-6 shadow-premium"
-          >
-            Our Capabilities
-          </motion.span>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.05, duration: 0.4 }}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 sm:mb-8 tracking-tighter leading-[0.9]"
-          >
-            PRECISION <br className="hidden sm:block" />
-            <span className="gradient-text">ENGINEERING.</span>
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.4 }}
-            className="text-white/50 max-w-2xl mx-auto text-base sm:text-lg md:text-xl font-light italic leading-relaxed tracking-wide !text-center"
-          >
-            &quot;Specialized{" "}
-            <span className="text-primary-400 font-medium not-italic">top-tier M&E solutions</span>{" "}
-            engineered for complex, large-scale national infrastructure.&quot;
-          </motion.p>
-          <div className="w-24 sm:w-32 h-[2px] bg-gradient-to-r from-transparent via-primary-500 to-transparent mx-auto mt-8 opacity-80" />
-        </div>
+        <SectionHeader
+          badge="Our Capabilities"
+          title="PRECISION [ENGINEERING.]"
+          subtitle="Specialized top-tier M&E solutions engineered for complex, large-scale national infrastructure."
+        />
 
         <div className="flex flex-wrap justify-center gap-8 sm:gap-10 lg:gap-14 w-full relative z-10">
           {SERVICES.map((service, index) => (

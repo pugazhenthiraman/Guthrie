@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { CORE_VALUES } from "@/constants/site";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const ValueIcons = [
   <svg key="1" className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -137,48 +138,16 @@ export function CoreValues() {
     <Section className="bg-navy-950 px-4 sm:px-6 py-24 sm:py-28 md:py-36 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-primary-500/30 to-transparent" />
 
-      <div className="container mx-auto max-w-[1800px]">
-        <div className="text-center mb-12 sm:mb-16 md:mb-20 relative z-10 flex flex-col items-center">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 rounded-full glass border border-white/10 text-primary-400 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-6 shadow-premium"
-          >
-            Our Foundation
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.05 }}
-            className="text-3xl sm:text-4xl md:text-6xl font-black text-white tracking-tighter mb-4"
-          >
-            <span className="text-primary-500">RESPECTED.</span> READY.{" "}
-            <br className="hidden sm:block" />
-            RELIABLE.
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-white/50 max-w-2xl mx-auto text-base sm:text-lg md:text-xl font-light italic leading-relaxed tracking-wide !text-center"
-          >
-            &quot;Three pillars that define our commitment to{" "}
-            <span className="text-primary-400 font-medium not-italic">
-              excellence in M&E engineering
-            </span>
-            &quot;
-          </motion.p>
-          <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-primary-500/50 to-transparent mx-auto mt-6" />
-        </div>
+      <SectionHeader
+        badge="Our Foundation"
+        title="RESPECTED. READY. [RELIABLE.]"
+        subtitle="Three pillars that define our commitment to excellence in M&E engineering"
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative z-10">
-          {CORE_VALUES.map((value, index) => (
-            <CoreValueCard key={index} value={value} index={index} />
-          ))}
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative z-10">
+        {CORE_VALUES.map((value, index) => (
+          <CoreValueCard key={index} value={value} index={index} />
+        ))}
       </div>
     </Section>
   );

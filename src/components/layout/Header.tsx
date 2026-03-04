@@ -43,9 +43,7 @@ export function Header() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <Magnetic strength={0.25}>
-            <Logo />
-          </Magnetic>
+          <Logo />
         </motion.div>
 
         {/* Desktop Nav */}

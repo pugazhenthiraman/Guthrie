@@ -19,7 +19,9 @@ export function Section({ children, className = "", id }: SectionProps) {
       transition={{ duration: 0.8 }}
       className={`py-28 sm:py-36 md:py-48 ${className}`}
     >
-      <div className="container max-w-[1800px] px-6 sm:px-8 lg:px-12">{children}</div>
+      <div className="container !mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12 w-full flex flex-col items-center">
+        {children}
+      </div>
     </motion.section>
   );
 }
