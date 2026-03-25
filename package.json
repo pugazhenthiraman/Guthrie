@@ -26,6 +26,9 @@
     ]
   },
   "dependencies": {
+    "@fontsource/playfair-display": "^5.2.8",
+    "@fontsource/space-mono": "^5.2.9",
+    "@next/swc-linux-x64-gnu": "^16.2.1",
     "@prisma/client": "^6.19.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

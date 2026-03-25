@@ -81,7 +81,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-950 pt-24 sm:pt-20 pb-24 sm:pb-32 px-4 sm:px-6">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-navy-950 py-24 sm:py-32 px-4 sm:px-6">
       <SplashCursor
         SIM_RESOLUTION={128}
         DYE_RESOLUTION={1440}

@@ -18,7 +18,7 @@ export default function ServiceDetail({ params }: { params: Promise<{ slug: stri
   if (!service) notFound();
 
   return (
-    <main className="min-h-screen bg-navy-950">
+    <div className="min-h-screen bg-navy-950">
       {/* Hero Banner */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-navy-950 z-10" />
@@ -182,7 +182,7 @@ export default function ServiceDetail({ params }: { params: Promise<{ slug: stri
                     </span>
                   </div>
                 </div>
-                <div className="p-10 bg-navy-900 flex flex-col items-center text-center">
+                <div className="p-10 sm:p-12 bg-navy-900 flex flex-col items-center text-center">
                   <h3 className="text-2xl md:text-3xl font-black text-white mb-5 !text-center">
                     {item.title}
                   </h3>
@@ -367,14 +367,14 @@ export default function ServiceDetail({ params }: { params: Promise<{ slug: stri
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
             >
-              <Card className="p-10 lg:p-12 text-center h-full hover:border-primary-500/30 transition-all group">
+              <Card className="p-10 sm:p-12 lg:p-14 text-center h-full hover:border-primary-500/30 transition-all group">
                 <div className="w-20 h-20 mx-auto mb-8 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white font-black text-3xl group-hover:scale-110 transition-transform shadow-glow">
                   {i + 1}
                 </div>
-                <h3 className="text-xl font-black text-white mb-5 uppercase tracking-tight">
+                <h3 className="text-xl md:text-2xl font-black text-white mb-5 uppercase tracking-tight">
                   {pillar.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed font-light text-sm">{pillar.desc}</p>
+                <p className="text-gray-400 leading-relaxed font-light text-base">{pillar.desc}</p>
               </Card>
             </motion.div>
           ))}
@@ -423,13 +423,13 @@ export default function ServiceDetail({ params }: { params: Promise<{ slug: stri
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="p-10 lg:p-12 flex items-start gap-8 group hover:border-primary-500/30 transition-all h-full">
+              <Card className="p-10 sm:p-12 flex flex-col items-center text-center gap-8 group hover:border-primary-500/30 transition-all h-full">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white font-black text-xl shrink-0 group-hover:scale-110 transition-transform shadow-glow">
                   {i + 1}
                 </div>
                 <div>
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-4">{feature}</h3>
-                  <p className="text-gray-400 leading-relaxed font-light text-sm">
+                  <p className="text-gray-300 leading-relaxed font-light text-base">
                     Delivering precision and reliability through decades of specialized experience.
                   </p>
                 </div>
@@ -471,6 +471,6 @@ export default function ServiceDetail({ params }: { params: Promise<{ slug: stri
           ← Back to All Services
         </Link>
       </div>
-    </main>
+    </div>
   );
 }

@@ -1,0 +1,47 @@
+import { NextResponse } from "next/server";
+import { z } from "zod";
+
+// TEMPORARY VERSION - NO DATABASE REQUIRED
+// Use this if database is not setup yet
+
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().optional(),
+  category: z.string().min(1, "Please select a category"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+export async function POST(request: Request) {
+  try {
+    const body = await request.json();
+    const validated = contactSchema.parse(body);
+    
+    // Log to console instead of saving to database
+    console.log("📧 NEW CONTACT INQUIRY:");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log("Name:", validated.name);
+    console.log("Email:", validated.email);
+    console.log("Phone:", validated.phone || "Not provided");
+    console.log("Category:", validated.category);
+    console.log("Message:", validated.message);
+    console.log("Time:", new Date().toISOString());
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+    
+    return NextResponse.json({ 
+      success: true, 
+      id: "temp-" + Date.now() 
+    });
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { success: false, message: error.errors[0].message },
+        { status: 400 }
+      );
+    }
+    return NextResponse.json(
+      { success: false, message: "Failed to submit inquiry" },
+      { status: 500 }
+    );
+  }
+}

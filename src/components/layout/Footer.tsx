@@ -7,12 +7,12 @@ import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white pt-44 sm:pt-60 pb-24 relative overflow-hidden">
+    <footer className="bg-black text-white pt-20 sm:pt-32 pb-16 sm:pb-24 relative overflow-hidden">
       {/* Decorative divider */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="container mx-auto px-6 sm:px-8 max-w-[1500px] relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-16 lg:gap-20 xl:gap-32 mb-44 sm:mb-60">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-16 lg:gap-20 xl:gap-32 mb-20 sm:mb-32">
           {/* Logo & Description */}
           <div className="lg:col-span-1">
             <div className="mb-8 sm:mb-10">
@@ -23,14 +23,20 @@ export function Footer() {
               through innovation and reliability.
             </p>
             <div className="flex gap-4 sm:gap-5">
-              {["FB", "LN", "TW"].map((social) => (
+              {[
+                { label: "FB", href: "https://facebook.com" },
+                { label: "LN", href: "https://linkedin.com" },
+                { label: "TW", href: "https://twitter.com" },
+              ].map((social) => (
                 <motion.a
-                  key={social}
-                  href="#"
-                  whileHover={{ y: -5, color: "#f97316" }}
-                  className="w-11 h-11 rounded-full glass border border-white/5 flex items-center justify-center text-[10px] font-bold text-gray-400 transition-colors"
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -5, color: "#f97316", borderColor: "rgba(249,115,22,0.4)" }}
+                  className="w-11 h-11 rounded-full glass border border-white/5 flex items-center justify-center text-[10px] font-bold text-gray-400 transition-all duration-300"
                 >
-                  {social}
+                  {social.label}
                 </motion.a>
               ))}
             </div>

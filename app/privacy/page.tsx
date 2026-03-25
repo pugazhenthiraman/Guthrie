@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/Section";
 
 export default function PrivacyPage() {
   return (
-    <main>
+    <div>
       <section className="bg-navy-950 pt-32 pb-16">
         <div className="container mx-auto px-6 max-w-4xl">
           <motion.h1
@@ -58,6 +58,6 @@ export default function PrivacyPage() {
           </div>
         </div>
       </Section>
-    </main>
+    </div>
   );
 }
